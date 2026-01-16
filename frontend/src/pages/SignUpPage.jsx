@@ -3,8 +3,10 @@ import {  ShipWheelIcon } from 'lucide-react';
 import React from 'react'
 import {useState} from "react";
 // import { Link } from 'react-router';
-import { axiosInstance } from '../lib/axios';
+
 import { Link } from 'react-router-dom'
+import { signup } from '../lib/api';
+
 
 
 
@@ -18,13 +20,10 @@ const SignUpPage = () => {
     password:"",
   })
   const queryClient = useQueryClient();
-  const {mutate,isPending, error} = useMutation({
-    mutationFn: async ()=>{
-      // signup api call
-      const response = await axiosInstance.post("/auth/signup", signupData);
-      return response.data;
+  const {mutate:signupMutation,isPending, error} = useMutation({
+    mutationFn: signup,
 
-    },
+    
     onSuccess: ()=>queryClient.invalidateQueries({queryKey:["authUser"]}),
 
 
@@ -33,7 +32,7 @@ const SignUpPage = () => {
   const handleSignup=(e)=>{
  
     e.preventDefault()
-    mutate();
+    signupMutation(signupData);
   }
   return (
     <div className='h-screen flex items-center justify-center p-4 sm:p-6 md:p-8' data-theme="forest">
@@ -47,6 +46,12 @@ const SignUpPage = () => {
         Streamzy
         </span>
       </div>
+
+      {error && (
+        <div className='alert alert-error mb-4'>
+          <span>{error.response.data.message}</span>
+          </div>
+      )}
 
       <div className='w-full'>
         <form onSubmit={handleSignup}>
@@ -109,7 +114,14 @@ const SignUpPage = () => {
                 </label>
               </div>
             </div>
-            <button className='btn btn-primary w-full' type="submit">{isPending?"Signing up...":"Create Account"}</button>
+            <button className='btn btn-primary w-full' type="submit">{isPending?(
+              <>
+              <span className='loading loading-spinner loading-xs'>
+                Loading...
+
+              </span>
+              </>
+            ):("Create Account")}</button>
 
             <div className='text-center mt-4'>
               <p className='text-sm'>
