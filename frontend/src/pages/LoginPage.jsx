@@ -73,7 +73,7 @@ const LoginPage = () => {
                   <span className='label-text'>Password</span>
                 </label>
                 <input type="password"
-                placeholder='******'
+                placeholder='**********'
                 className='input input-bordered w-full'
                 value={loginData.password}
                 onChange={(e)=>setloginData({...loginData,password:e.target.value})}
