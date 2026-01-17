@@ -16,7 +16,7 @@ import PageLoader from './components/PageLoader.jsx'
 
 import useAuthUser from './hooks/useAuthUser.js'
 import Layout from './components/Layout.jsx';
-import {useThemeStore} from './store/useThemeStore.js'
+import {useThemeStore} from './store/useThemestore.js'
 
 const App = () => {
 
@@ -58,7 +58,14 @@ if(isLoading) return <PageLoader/>
 
         )}/>
         <Route path="/call" element={isAuthenticated? <CallPage/> : <Navigate to="/login"/>}/>
-        <Route path="/chat" element={isAuthenticated? <ChatPage/> : <Navigate to="/login"/>}/>
+        <Route path="/chat/:id" element={isAuthenticated && isOnboarded?(
+          <Layout showSidebar={false}>
+            <ChatPage/>
+
+          </Layout>
+        ):(
+          <Navigate to={!isAuthenticated?"/login" :"/onboarding"}/>
+        ) }/>
 
         <Route path="/onboarding" element={ isAuthenticated? (
           !isOnboarded?(
