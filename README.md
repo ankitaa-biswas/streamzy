@@ -6,7 +6,7 @@ The platform enables users to interact using **real-time messaging and video cal
 
 ---
 
-## 🚀 Live Application
+##  Live Application
 
 🔗 **Production:**  
 https://streamzy-3b59.onrender.com
@@ -15,7 +15,7 @@ https://streamzy-3b59.onrender.com
 
 ---
 
-## 🧰 Tech Stack (MERN)
+##  Tech Stack (MERN)
 
 ### Frontend
 - React
@@ -37,19 +37,20 @@ https://streamzy-3b59.onrender.com
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔐 Secure user authentication (Signup / Login / Logout)
-- 💬 Real-time chat using Stream Chat
-- 📹 Video calling with Stream Video SDK
-- 🌍 Meet new people to practice and learn new languages
-- 🍪 Cookie-based JWT authentication
-- 🌐 Secure frontend–backend communication with CORS
-- 🚀 Production-ready MERN architecture
+-  Secure user authentication (Signup / Login / Logout)
+-  Real-time chat using Stream Chat
+-  Video calling with Stream Video SDK
+-  Share Screen and give Reaction
+-  Meet new people to practice and learn new languages
+-  Cookie-based JWT authentication
+-  Secure frontend–backend communication with CORS
+-  Production-ready MERN architecture
 
 ---
 
-## ⚙️ Environment Variables (Backend)
+##  Environment Variables (Backend)
 
 Create a `.env` file inside the `backend` folder:
 
@@ -63,7 +64,7 @@ CLIENT_URL=http://localhost:5173
 NODE_ENV=production
 ```
 
-## ▶️ Running Locally
+##  Running Locally
 ```
 git clone https://github.com/ankitaa-biswas/streamzy.git
 cd streamzy
