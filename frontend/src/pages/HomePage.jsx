@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {useThemeStore} from '../store/useThemeStore';
+import {useThemeStore} from '../store/useThemeStore.js';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import {getRecommendedUsers,getUserFriends,getOutgoingFriendReqs,sendFriendRequest} from '../lib/api.js';
